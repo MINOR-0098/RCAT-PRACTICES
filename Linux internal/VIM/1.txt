@@ -1,0 +1,8 @@
+:wq!  save and quit
+yy copy
+p paste 
+dd delete line
+:[range]s/{pattern}/{string}/[flags] [count] find and replace
+u undo
+ctrl + r redo
+ctrl+v visual block

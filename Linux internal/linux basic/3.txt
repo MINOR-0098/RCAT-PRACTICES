@@ -1,0 +1,7 @@
+users
+sudo useradd testuser
+sudo passwd testuser
+sudo usermod -aG sudo testuser
+touch important.txt
+sudo chown testuser important.txt
+date

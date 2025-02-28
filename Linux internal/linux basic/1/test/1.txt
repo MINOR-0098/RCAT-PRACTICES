@@ -1,0 +1,5 @@
+mkdir test
+touch sample.txt
+cp sample.txt backup.txt
+mv backup.txt backup_old.txt
+rm sample.txt

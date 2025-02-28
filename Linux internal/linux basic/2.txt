@@ -1,0 +1,6 @@
+touch data.txt
+echo cat mand linux max payne adventure linux hold mat cat >>data.txt
+grep linux data.txt
+sed -i 's\Linux\Unix\g' input.txt
+wc data.txt
+sort data.txt
