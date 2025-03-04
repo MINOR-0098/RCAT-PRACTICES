@@ -1,0 +1,10 @@
+16:05:31 **** Incremental Build of configuration Debug for project usart_rx_int_hal ****
+make -j4 all 
+arm-none-eabi-size  usart_rx_int_hal.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11824	     12	   1652	  13488	   34b0	usart_rx_int_hal.elf
+Finished building: default.size.stdout
+ 
+
+16:05:32 Build Finished. 0 errors, 0 warnings. (took 1s.272ms)
+

@@ -1,0 +1,46 @@
+16:22:27 **** Incremental Build of configuration Debug for project LCD INTERUPT ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'LCD_string':
+../Core/Src/main.c:106:27: warning: comparison between pointer and integer
+  106 |                 if((str[i]!=NULL)&&(str[i]!='\n')&&(str[i]!='\r'))
+      |                           ^~
+../Core/Src/main.c:110:21: warning: assignment to 'char' from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+  110 |             buff[i] = NULL;
+      |                     ^
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:115:38: warning: pointer targets in passing argument 2 of 'HAL_UART_Receive_IT' differ in signedness [-Wpointer-sign]
+  115 |         HAL_UART_Receive_IT(&huart2, buff, 15);
+      |                                      ^~~~
+      |                                      |
+      |                                      char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:411,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:748:75: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  748 | HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+      |                                                                  ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:153:32: warning: pointer targets in passing argument 2 of 'HAL_UART_Receive_IT' differ in signedness [-Wpointer-sign]
+  153 |   HAL_UART_Receive_IT(&huart2, buff, 15);
+      |                                ^~~~
+      |                                |
+      |                                char *
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:748:75: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  748 | HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+      |                                                                  ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "LCD INTERUPT.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\GOLUM\STM32CubeIDE\workspace_1.16.1\uart\LCD INTERUPT\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD INTERUPT.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD INTERUPT.elf
+ 
+arm-none-eabi-size  LCD\ INTERUPT.elf 
+arm-none-eabi-objdump -h -S LCD\ INTERUPT.elf  > "LCD INTERUPT.list"
+   text	   data	    bss	    dec	    hex	filename
+  11828	     12	   1660	  13500	   34bc	LCD INTERUPT.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD INTERUPT.list
+ 
+
+16:22:30 Build Finished. 0 errors, 4 warnings. (took 3s.336ms)
+

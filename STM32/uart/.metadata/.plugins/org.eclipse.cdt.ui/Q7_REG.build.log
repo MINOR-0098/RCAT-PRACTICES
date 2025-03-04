@@ -1,0 +1,10 @@
+15:29:16 **** Build of configuration Debug for project Q7_REG ****
+make -j4 all 
+arm-none-eabi-size  Q7_REG.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1076	      4	   1572	   2652	    a5c	Q7_REG.elf
+Finished building: default.size.stdout
+ 
+
+15:29:18 Build Finished. 0 errors, 0 warnings. (took 1s.945ms)
+

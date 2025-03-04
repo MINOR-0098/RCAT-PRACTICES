@@ -1,0 +1,10 @@
+15:29:15 **** Build of configuration Debug for project Q7_HAL ****
+make -j4 all 
+arm-none-eabi-size  Q7_HAL.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9156	     12	   1644	  10812	   2a3c	Q7_HAL.elf
+Finished building: default.size.stdout
+ 
+
+15:29:16 Build Finished. 0 errors, 0 warnings. (took 1s.264ms)
+

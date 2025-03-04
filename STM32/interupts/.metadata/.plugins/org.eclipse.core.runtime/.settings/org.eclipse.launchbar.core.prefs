@@ -1,0 +1,16 @@
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Q2_HAL Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:q1_hal Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Q3_HAL Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Q6_HAL Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Qidk_hal Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Q9_HAL Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Q10_HAL Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Q11_HAL Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Q9_REG Debug
+eclipse.preferences.version=1
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Q10_HAL\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Q10_HAL\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Q2_HAL\ Debug/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Q2_HAL\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Q4_HAL\ Debug/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Q6_HAL\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Q9_HAL\ Debug/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Q9_REG\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Qidk_hal\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:q1_hal\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:q1_hal\ Debug/activeLaunchTarget=null\:---

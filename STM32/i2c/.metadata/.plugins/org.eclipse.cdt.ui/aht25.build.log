@@ -1,0 +1,48 @@
+15:46:51 **** Incremental Build of configuration Debug for project aht25 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'AHT25_ReadTemperatureAndHumidity':
+../Core/Src/main.c:95:53: error: lvalue required as unary '&' operand
+   95 |   if (HAL_I2C_Master_Transmit(&hi2c, AHT25_ADDRESS, &AHT25_STATUS_CMD, 1, HAL_MAX_DELAY) != HAL_OK) {
+      |                                                     ^
+../Core/Src/main.c:95:31: warning: passing argument 1 of 'HAL_I2C_Master_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
+   95 |   if (HAL_I2C_Master_Transmit(&hi2c, AHT25_ADDRESS, &AHT25_STATUS_CMD, 1, HAL_MAX_DELAY) != HAL_OK) {
+      |                               ^~~~~
+      |                               |
+      |                               I2C_HandleTypeDef **
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:363,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:566:62: note: expected 'I2C_HandleTypeDef *' but argument is of type 'I2C_HandleTypeDef **'
+  566 | HAL_StatusTypeDef HAL_I2C_Master_Transmit(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                           ~~~~~~~~~~~~~~~~~~~^~~~
+../Core/Src/main.c:98:30: warning: passing argument 1 of 'HAL_I2C_Master_Receive' from incompatible pointer type [-Wincompatible-pointer-types]
+   98 |   if (HAL_I2C_Master_Receive(&hi2c, AHT25_ADDRESS, &status_reg, 1, HAL_MAX_DELAY) != HAL_OK) {
+      |                              ^~~~~
+      |                              |
+      |                              I2C_HandleTypeDef **
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:567:61: note: expected 'I2C_HandleTypeDef *' but argument is of type 'I2C_HandleTypeDef **'
+  567 | HAL_StatusTypeDef HAL_I2C_Master_Receive(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                          ~~~~~~~~~~~~~~~~~~~^~~~
+../Core/Src/main.c:106:31: warning: passing argument 1 of 'HAL_I2C_Master_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
+  106 |   if (HAL_I2C_Master_Transmit(&hi2c, AHT25_ADDRESS, measure_data, 2, HAL_MAX_DELAY) != HAL_OK) {
+      |                               ^~~~~
+      |                               |
+      |                               I2C_HandleTypeDef **
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:566:62: note: expected 'I2C_HandleTypeDef *' but argument is of type 'I2C_HandleTypeDef **'
+  566 | HAL_StatusTypeDef HAL_I2C_Master_Transmit(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                           ~~~~~~~~~~~~~~~~~~~^~~~
+../Core/Src/main.c:113:30: warning: passing argument 1 of 'HAL_I2C_Master_Receive' from incompatible pointer type [-Wincompatible-pointer-types]
+  113 |   if (HAL_I2C_Master_Receive(&hi2c, AHT25_ADDRESS, read_data, 6, HAL_MAX_DELAY) != HAL_OK) {
+      |                              ^~~~~
+      |                              |
+      |                              I2C_HandleTypeDef **
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:567:61: note: expected 'I2C_HandleTypeDef *' but argument is of type 'I2C_HandleTypeDef **'
+  567 | HAL_StatusTypeDef HAL_I2C_Master_Receive(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                          ~~~~~~~~~~~~~~~~~~~^~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+
+15:46:53 Build Failed. 2 errors, 4 warnings. (took 2s.153ms)
+

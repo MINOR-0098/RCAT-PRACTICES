@@ -1,0 +1,16 @@
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Q1_REG Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Q1_hal Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Q7_HAL Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Q7_REG Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Q8_HAL Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Q9_REG Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Q5_lcd Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:usart_rx_int_hal Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:led_intr Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:LCD INTERUPT Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:two uart Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:two uart reg Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:usart upper Debug
+eclipse.preferences.version=1
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:LCD\ INTERUPT\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:LCD\ INTERUPT\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Q1_REG\ Debug/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Q1_REG\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Q1_hal\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Q1_hal\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Q7_REG\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Q8_HAL\ Debug/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Q9_REG\ Debug/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:two\ uart\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:usart_rx_int_hal\ Debug/activeLaunchMode=debug

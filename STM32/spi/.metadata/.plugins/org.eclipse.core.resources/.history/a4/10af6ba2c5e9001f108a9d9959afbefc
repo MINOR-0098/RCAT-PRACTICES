@@ -1,0 +1,143 @@
+#include "stm32f4xx.h"
+#include <stdio.h>
+// SPI and GPIO Registers
+#define SPI1_BASE (0x40013000)
+#define GPIOA_BASE (0x40020000)
+// Define SPI1 Register structure
+typedef struct {
+  volatile uint32_t CR1;
+  volatile uint32_t CR2;
+  volatile uint32_t SR;
+  volatile uint32_t DR;
+  volatile uint32_t CRCPR;
+  volatile uint32_t RXCRCR;
+  volatile uint32_t TXCRCR;
+  volatile uint32_t I2SCFGR;
+  volatile uint32_t I2SPR;
+} SPI;
+// Define GPIOA Register structure
+typedef struct {
+  volatile uint32_t MODER;
+  volatile uint32_t OTYPER;
+  volatile uint32_t OSPEEDR;
+  volatile uint32_t PUPDR;
+  volatile uint32_t IDR;
+  volatile uint32_t ODR;
+  volatile uint32_t BSRR;
+  volatile uint32_t LCKR;
+  volatile uint32_t AFR[2];
+} GPIO;
+
+// SPI1 Register pointers
+#define SPI1 ((SPI_TypeDef *) SPI1_BASE)
+
+// GPIOA Register pointers
+#define GPIOA ((GPIO_TypeDef *) GPIOA_BASE)
+
+// Define the RFID ID size
+#define RFID_ID_SIZE 5
+
+// Function prototypes
+//void SystemClock_Config(void);
+void GPIO_Init(void);
+void SPI1_Init(void);
+void MFRC522_Init(void);
+void MFRC522_Check(uint8_t *rfidID);
+void Error_Handler(void);
+
+// Main Function
+int main(void)
+{
+  // Initialize System Clock
+  SystemClock_Config();
+
+// Initialize GPIO and SPI
+  GPIO_Init();
+  SPI1_Init();
+
+// Initialize RC522 (SPI communication)
+  MFRC522_Init();
+uint8_t rfidID[RFID_ID_SIZE]; // Array to store the RFID tag ID
+printf("RC522 RFID Reader Initialized.\n");
+while (1)
+  {
+    // Check for RFID presence
+    MFRC522_Check(rfidID);
+    printf("RFID Tag Detected. ID: ");
+    for (int i = 0; i < RFID_ID_SIZE; i++) {
+      printf("%02X ", rfidID[i]); // Print ID in HEX format
+    }
+    printf("\n");
+    for (volatile int i = 0; i < 1000000; i++); // Delay for readability
+  }
+}
+// System Clock Configuration (Bare-metal, configure HSE and PLL)
+//void SystemClock_Config(void) {
+//  // Assume HSE is used and configured as the system clock
+//  // Enable HSE oscillator
+//  RCC->CR |= RCC_CR_HSEON;
+//  while (!(RCC->CR & RCC_CR_HSERDY)); // Wait for HSE to be ready
+//// Configure PLL to use HSE as source (common setup for STM32)
+//  RCC->CFGR |= RCC_PLLCFGR_PLLSRC_HSE;
+//  RCC->CFGR |= RCC_CFGR_PPRE1; // Set PLL multiplier (x9)
+//// Enable PLL
+//  RCC->CR |= RCC_CR_PLLON;
+//  while (!(RCC->CR & RCC_CR_PLLRDY)); // Wait for PLL to be ready
+//// Set PLL as the system clock
+//  RCC->CFGR |= RCC_CFGR_SW_PLL;
+//  while ((RCC->CFGR & RCC_CFGR_SWS) != RCC_CFGR_SWS_PLL); // Wait for PLL to be selected as system clock
+//}
+// GPIO Initialization
+void GPIO_Init(void) {
+  // Enable GPIOA clock (for SPI1)
+  RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN;
+// Set PA5, PA6, PA7 as SPI pins (SCK, MISO, MOSI)
+  GPIOA->MODER |= (0x02 << 25) | (0x02 << 26) | (0x02 << 27); // Alternate function mode
+  GPIOA->OSPEEDR |= (0x03 << 25) | (0x03 << 26) | (0x03 << 27); // High speed
+//  GPIOA->AFR[0] |= (0x05 << 45) | (0x05 << 46) | (0x05 << 4*7); // AF5 for SPI1
+  GPIOA->AFR[0] |= (0x05 << 4*5) | (0x05 << 4*6) | (0x05 << 4*7); // AF5 for SPI1
+// Set PA4 as output for CS (chip select)
+  GPIOA->MODER |= (0x01 << 2*4); // General output mode
+  GPIOA->OTYPER |= (0x01 << 4);  // Push-pull mode
+}
+// SPI1 Initialization
+void SPI1_Init(void) {
+  // Enable SPI1 clock
+  RCC->APB2ENR |= RCC_APB2ENR_SPI1EN;
+// Configure SPI1 settings
+  SPI1->CR1 = 0; // Reset all bits
+  SPI1->CR1 |= SPI_CR1_MSTR; // Set SPI as master
+  SPI1->CR1 |= SPI_CR1_SSM;  // Software NSS management (manual CS control)
+  SPI1->CR1 |= SPI_CR1_SSI;  // Set internal NSS to avoid accidental chip select
+// Configure SPI baud rate, polarity, phase, and data size
+  SPI1->CR1 |= SPI_CR1_BR_1; // Baud rate prescaler = fPCLK / 4 (adjust as needed)
+  SPI1->CR1 |= SPI_CR1_CPOL; // Clock polarity (idle high)
+  SPI1->CR1 |= SPI_CR1_CPHA; // Clock phase (data is captured on the second edge)
+  SPI1->CR1 |= SPI_CR1_MSTR; // Set as master
+  SPI1->CR1 |= SPI_CR1_LSBFIRST; // Data frame format: MSB first
+// Enable SPI1
+  SPI1->CR1 |= SPI_CR1_SPE;
+}
+// MFRC522 Initialization
+void MFRC522_Init(void) {
+  // Perform initialization of MFRC522 (this can involve sending a series of commands via SPI)
+  // For bare-metal code, you will manually control the MFRC522 registers
+}
+// RFID Check Function
+void MFRC522_Check(uint8_t *rfidID) {
+  // Use SPI to communicate with the MFRC522 and read the RFID tag ID
+  // Read the ID into the rfidID array (implement actual SPI read/write to communicate with the MFRC522)
+  // For simplicity, we assume that RFID is detected and rfidID is filled with dummy data
+  // Replace with actual SPI communication with MFRC522
+  rfidID[0] = 0x04; // Example ID
+  rfidID[1] = 0xA2;
+  rfidID[2] = 0xB8;
+  rfidID[3] = 0xD3;
+  rfidID[4] = 0x7F;
+}
+// Error Handler
+void Error_Handler(void) {
+  // Handle errors here (enter infinite loop or perform reset)
+  while (1) {
+  }
+}

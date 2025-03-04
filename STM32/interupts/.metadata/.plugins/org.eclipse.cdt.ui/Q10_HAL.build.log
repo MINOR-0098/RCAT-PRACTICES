@@ -1,0 +1,10 @@
+15:29:27 **** Incremental Build of configuration Debug for project Q10_HAL ****
+make -j4 all 
+arm-none-eabi-size  Q10_HAL.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12992	    104	   1984	  15080	   3ae8	Q10_HAL.elf
+Finished building: default.size.stdout
+ 
+
+15:29:28 Build Finished. 0 errors, 0 warnings. (took 848ms)
+

@@ -1,0 +1,7 @@
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:ex1 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:ex2 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:ex3 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:ex4 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:ex5 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:ex6 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:ex7 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:ex8 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:ex10 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:multi adc Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:multi 2 Debug
+eclipse.preferences.version=1
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:ex1\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:ex1\ Debug/activeLaunchTarget=null\:---

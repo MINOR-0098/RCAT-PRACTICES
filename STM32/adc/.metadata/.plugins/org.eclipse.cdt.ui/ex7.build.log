@@ -1,0 +1,27 @@
+10:05:34 **** Incremental Build of configuration Debug for project ex7 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:86:19: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   86 |           sprintf(buff,"%d",a);
+      |                   ^~~~
+      |                   |
+      |                   uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:21:
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+arm-none-eabi-gcc -o "ex7.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\GOLUM\STM32CubeIDE\workspace_1.16.1\adc\ex7\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ex7.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ex7.elf
+ 
+arm-none-eabi-size  ex7.elf 
+arm-none-eabi-objdump -h -S ex7.elf  > "ex7.list"
+   text	   data	    bss	    dec	    hex	filename
+  29392	    480	   2128	  32000	   7d00	ex7.elf
+Finished building: default.size.stdout
+ 
+Finished building: ex7.list
+ 
+
+10:05:38 Build Finished. 0 errors, 1 warnings. (took 3s.834ms)
+

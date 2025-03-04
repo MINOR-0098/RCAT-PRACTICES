@@ -1,0 +1,10 @@
+17:12:51 **** Incremental Build of configuration Debug for project multi adc ****
+make -j4 all 
+arm-none-eabi-size  multi\ adc.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8928	     12	   1668	  10608	   2970	multi adc.elf
+Finished building: default.size.stdout
+ 
+
+17:12:53 Build Finished. 0 errors, 0 warnings. (took 2s.375ms)
+

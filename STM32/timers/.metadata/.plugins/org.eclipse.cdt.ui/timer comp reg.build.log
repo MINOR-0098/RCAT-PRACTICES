@@ -1,0 +1,10 @@
+12:40:20 **** Incremental Build of configuration Debug for project timer comp reg ****
+make -j4 all 
+arm-none-eabi-size  timer\ comp\ reg.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1064	      4	   1572	   2640	    a50	timer comp reg.elf
+Finished building: default.size.stdout
+ 
+
+12:40:21 Build Finished. 0 errors, 0 warnings. (took 1s.196ms)
+

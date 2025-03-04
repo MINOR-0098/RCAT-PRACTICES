@@ -1,0 +1,10 @@
+15:29:13 **** Build of configuration Debug for project Q5_lcd ****
+make -j4 all 
+arm-none-eabi-size  Q5_lcd.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1296	      4	   1572	   2872	    b38	Q5_lcd.elf
+Finished building: default.size.stdout
+ 
+
+15:29:14 Build Finished. 0 errors, 0 warnings. (took 1s.284ms)
+

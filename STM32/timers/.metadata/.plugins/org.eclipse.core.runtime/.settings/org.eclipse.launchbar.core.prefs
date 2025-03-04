@@ -1,0 +1,16 @@
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:timer interupt Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:timer comp reg Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:timer4 pwm Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:duty cycle measure Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:EX_5_2_pwm Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:ex_6_pwm_var_freq Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:ex6 reg level Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:input capture Debug
+eclipse.preferences.version=1
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:EX_5_2_pwm\ Debug/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:EX_5_2_pwm\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:duty\ cycle\ measure\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:duty\ cycle\ measure\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:input\ capture\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:input\ capture\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:timer\ comp\ reg\ Debug/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:timer\ comp\ reg\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:timer\ interupt\ Debug/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:timer\ interupt\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:timer4\ pwm\ Debug/activeLaunchMode=debug
