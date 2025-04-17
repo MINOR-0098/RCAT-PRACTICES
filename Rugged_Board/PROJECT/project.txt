@@ -1,0 +1,14 @@
+connections aht25 stm 32
+1. vcc -> 5v
+2. SDA -> PC9
+3. gnd -> gnd
+4. SCL -> PA8
+
+stm 32 to rugged board
+PB10 -> mikro bus rx 
+
+broker :- mqtt.eclipseprojects.io
+topic :- MQTT projects
+
+to compile :- arm-poky-linux-musleabi-gcc  -march=armv7-a -marm -mfpu=neon -mfloat-abi=hard -mcpu=cortex-a5 -mmusl --sysroot=/opt/poky-tiny/2.5.2/sysroots/cortexa5hf-neon-poky-linux-musleabi -o MQTTClient_subscribe MQTTClient_subscribe.c -lpaho-mqtt3cs -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed -I src -Wl,--start-group -lpthread -lssl -lcrypto -Wl,--end-group -L build/output
+
