@@ -136,7 +136,7 @@ int main(void)
 
 	  sprintf(out,"temp: %ld \n\r",degC);
 	  HAL_UART_Transmit(&huart3, out, 11, 500);
-	  HAL_Delay(100);
+	  HAL_Delay(5000);
 
     /* USER CODE BEGIN 3 */
   }

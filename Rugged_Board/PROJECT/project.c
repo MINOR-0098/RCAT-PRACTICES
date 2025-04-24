@@ -1,5 +1,5 @@
 #include <stdio.h>      /* Standard input/output definitions */
-#include <stdlib.h>
+#include <stdlib.h>     /* Standard library definitions */
 #include <string.h>     /* String function definitions */
 #include <unistd.h>     /* UNIX standard function definitions */
 #include <fcntl.h>      /* File control definitions */
@@ -8,39 +8,39 @@
 #include <sys/select.h> /* For select() */
 #include "MQTTClient.h" /* Include the MQTTClient library */
 
-#define SERIAL_PORT "/dev/ttyS3"  /* Define the serial port */
-#define BAUDRATE B115200         /* Define the baud rate */
-#define BUFFER_SIZE 256         /* Define the buffer size */
+#define SERIAL_PORT "/dev/ttyS3"    /* Define the serial port */
+#define BAUDRATE B115200            /* Define the baud rate */
+#define BUFFER_SIZE 256             /* Define the buffer size */
 
-#define ADDRESS     "tcp://mqtt.eclipseprojects.io:1883" /* MQTT broker address */
-#define CLIENTID    "ExampleClientPub"  /* Client ID */
-#define TOPIC       "MQTT projects" /* Topic to publish to */
-#define QOS         1 /* Quality of Service level */
-#define TIMEOUT     10000L /* Timeout in milliseconds */
-char buffer[BUFFER_SIZE]; /* Buffer to store received data */
+#define ADDRESS     "tcp://mqtt.eclipseprojects.io:1883"    /* MQTT broker address */
+#define CLIENTID    "ExampleClientPub"                      /* Client ID */
+#define TOPIC       "MQTT projects"                         /* Topic to publish to */
+#define QOS         1                                       /* Quality of Service level */
+#define TIMEOUT     10000L                                  /* Timeout in milliseconds */
+char buffer[BUFFER_SIZE];                                   /* Buffer to store received data */
 
 int pub()
 {
-    MQTTClient client;
-    MQTTClient_connectOptions conn_opts = MQTTClient_connectOptions_initializer;
-    MQTTClient_message pubmsg = MQTTClient_message_initializer;
-    MQTTClient_deliveryToken token;
-    int rc;
-
-    MQTTClient_create(&client, ADDRESS, CLIENTID,
-        MQTTCLIENT_PERSISTENCE_NONE, NULL);
-    conn_opts.keepAliveInterval = 20;
-    conn_opts.cleansession = 1;
-
+    MQTTClient client; /* MQTT client handle */
+    MQTTClient_connectOptions conn_opts = MQTTClient_connectOptions_initializer; /* Connection options */
+    MQTTClient_message pubmsg = MQTTClient_message_initializer; /* Message structure */
+    MQTTClient_deliveryToken token; /* Delivery token */
+    int rc; /* Return code */
+    /* Initialize the MQTT client */
+    MQTTClient_create(&client, ADDRESS, CLIENTID,MQTTCLIENT_PERSISTENCE_NONE, NULL); 
+    conn_opts.keepAliveInterval = 20; /* Keep alive interval */
+    conn_opts.cleansession = 1; /* Clean session flag */
+    /* Connect to the MQTT broker */
     if ((rc = MQTTClient_connect(client, &conn_opts)) != MQTTCLIENT_SUCCESS)
     {
         printf("Failed to connect, return code %d\n", rc);
         exit(EXIT_FAILURE);
     }
     pubmsg.payload = buffer; // Use the buffer as the payload
-    pubmsg.payloadlen = (int)strlen(buffer);
-    pubmsg.qos = QOS;
-    pubmsg.retained = 0;
+    pubmsg.payloadlen = (int)strlen(buffer); // Length of the payload
+    pubmsg.qos = QOS; // Quality of Service level
+    pubmsg.retained = 0; // Retained message flag
+    /* Publish the message */
     MQTTClient_publishMessage(client, TOPIC, &pubmsg, &token);
     printf("Waiting for up to %d seconds for publication of %s\n"
             "on topic %s for client with ClientID: %s\n",
@@ -60,7 +60,7 @@ int main() {
     struct timeval tv;      /* Timeout structure for select() */
 
     /* Open the serial port */
-    fd = open(SERIAL_PORT, O_RDWR | O_NOCTTY | O_NDELAY);
+    fd = open(SERIAL_PORT, O_RDWR | O_NOCTTY | O_NDELAY); /* Open the serial port in read/write mode, no controlling terminal, non-blocking */
     if (fd < 0) {
         perror("Error opening serial port");
         return 1;
@@ -74,8 +74,7 @@ int main() {
     }
 
     /* Configure the serial port settings */
-    tty.c_cflag = BAUDRATE | CS8 | CLOCAL | CREAD;  /* Set baud rate, 8 data bits,
-                                                     no control, enable read */
+    tty.c_cflag = BAUDRATE | CS8 | CLOCAL | CREAD;  /* Set baud rate, 8 data bits, no control, enable read */
     tty.c_iflag = IGNPAR;                           /* Ignore parity errors */
     tty.c_oflag = 0;                                /* Raw output */
     tty.c_lflag = 0;                                  /* Non-canonical mode */
@@ -101,7 +100,7 @@ int main() {
 
         /* Set the timeout (adjust as needed) */
         tv.tv_sec = 2;         /* 2 seconds */
-        tv.tv_usec = 0;
+        tv.tv_usec = 0; 
 
         /* Wait for data to be available or timeout */
         ret = select(fd + 1, &readfds, NULL, NULL, &tv);
